@@ -10,19 +10,18 @@ export default async function Home({
 
   const posts = [
     {
-      _createdAt: "yesterday",
+      _createdAt: new Date(),
       _id: 1,
       title: "Title",
       description: "Description",
       category: "Small Business",
       views: 55,
       author: {
-        _id: 1,
-        name: "Name",
-        image: "Image",
+        authorId: 1,
+        name: "Author",
       },
-      link: "Link",
-      pitch: "Pitch",
+      image:
+        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fthimpress.com%2Fentrepreneurs-are-developing-mobile-app-startup%2F&psig=AOvVaw3gTUtcHosa9bFhYrY25vai&ust=1742311228213000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOD51aK1kYwDFQAAAAAdAAAAABAE",
     },
   ];
 
