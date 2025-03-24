@@ -1,5 +1,7 @@
 import SearchForm from "@/components/SearchForm";
 import StartupCard from "@/components/StartupCard";
+import { client } from "@/sanity/lib/client";
+import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 
 export default async function Home({
   searchParams,
@@ -7,23 +9,24 @@ export default async function Home({
   searchParams: Promise<{ query?: string }>;
 }) {
   const query = (await searchParams).query;
+  const posts = await client.fetch(STARTUPS_QUERY);
 
-  const posts = [
-    {
-      _createdAt: new Date(),
-      _id: 1,
-      title: "Title",
-      description: "Description",
-      category: "Small Business",
-      views: 55,
-      author: {
-        authorId: 1,
-        name: "Author",
-      },
-      image:
-        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fthimpress.com%2Fentrepreneurs-are-developing-mobile-app-startup%2F&psig=AOvVaw3gTUtcHosa9bFhYrY25vai&ust=1742311228213000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOD51aK1kYwDFQAAAAAdAAAAABAE",
-    },
-  ];
+  // const posts = [
+  //   {
+  //     _createdAt: new Date(),
+  //     _id: 1,
+  //     title: "Title",
+  //     description: "Description",
+  //     category: "Small Business",
+  //     views: 55,
+  //     author: {
+  //       authorId: 1,
+  //       name: "Author",
+  //     },
+  //     image:
+  //       "https://www.google.com/url?sa=i&url=https%3A%2F%2Fthimpress.com%2Fentrepreneurs-are-developing-mobile-app-startup%2F&psig=AOvVaw3gTUtcHosa9bFhYrY25vai&ust=1742311228213000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOD51aK1kYwDFQAAAAAdAAAAABAE",
+  //   },
+  // ];
 
   return (
     <>
